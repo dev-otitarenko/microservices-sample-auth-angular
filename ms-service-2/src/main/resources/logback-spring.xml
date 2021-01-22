@@ -17,24 +17,21 @@
     <!--        </encoder>-->
     <!--    </appender>-->
 
-    <appender name="STASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>logstash:5000</destination>
-        <!-- encoder is required -->
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
-        <keepAliveDuration>2 minutes</keepAliveDuration>
-    </appender>
-
-    <logger name="org.springframework.web" level="ERROR">
-        <appender-ref ref="STASH"/>
-    </logger>
+<!--    <appender name="STASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
+<!--        <destination>logstash:5000</destination>-->
+<!--        &lt;!&ndash; encoder is required &ndash;&gt;-->
+<!--        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>-->
+<!--        <keepAliveDuration>2 minutes</keepAliveDuration>-->
+<!--    </appender>-->
 
     <logger name="com.maestro.app" level="INFO">
-        <appender-ref ref="STASH"/>
+<!--        <appender-ref ref="STASH"/>-->
+
         <appender-ref ref="STDOUT"/>
     </logger>
 
     <root level="ERROR">
-        <appender-ref ref="STASH"/>
+<!--        <appender-ref ref="STASH"/>-->
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

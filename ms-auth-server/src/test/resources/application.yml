@@ -1,0 +1,30 @@
+local.server.port: 8008
+check-user-scopes: false
+
+auth-server:
+  user: ${auth_user}
+  secret: ${auth_psw}
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:sqlserver://${db_host};databaseName=${db_name}
+    username: ${db_user}
+    password: ${db_psw}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+#SLF4J
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
+    com.maestro.app.sample.ms.auth: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

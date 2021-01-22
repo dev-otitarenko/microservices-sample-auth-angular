@@ -1,0 +1,13 @@
+<div class="layout-topbar nologin">
+  <a class="logo" [routerLink]="['']">
+    <div class="logo-image logo-iris"></div>
+  </a>
+
+  <div class="app-context">
+    <div class="app-login">
+      <button pButton type="button" class="ui-button-success" icon="pi pi-sign-in"
+              (click)="login();" *ngIf="routeActive !== '/login'"
+              pTooltip="Sign In"></button>
+    </div>
+  </div>
+</div>

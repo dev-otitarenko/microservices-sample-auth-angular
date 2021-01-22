@@ -1,6 +1,7 @@
 package com.maestro.app.sample1.ms.service1.controllers;
 
 import com.maestro.app.sample1.ms.service1.services.auth.IAuthenticationFacade;
+import com.maestro.app.utils.Response;
 import com.maestro.app.utils.auth.AuthUser;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,8 @@ public class MainController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping(value = "")
-    public String welcome() {
+    public Response welcome() {
         AuthUser authUser = authService.getAuthUser();
-        return "Hello " + authUser.getUsername() + " from service 1";
+        return new Response(1, "Hello " + authUser.getUsername() + " from service #1");
     }
-
 }

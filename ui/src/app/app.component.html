@@ -1,0 +1,27 @@
+<p-toast [baseZIndex]="9999" >
+  <ng-template let-message pTemplate="message">
+    <div class="ui-toast-summary" [innerHtml]="message.summary"></div>
+    <div class="ui-toast-detail" [innerHtml]="message.detail"></div>
+  </ng-template>
+</p-toast>
+
+<p-dialog header="Warning" [(visible)]="showMessage" [modal]="true" [minY]="70">
+  <span><b>{{idleState}}</b></span>
+  <p-footer>
+    <button pButton type="button" icon="pi pi-sign-out" (click)="logout()"
+            label="Logout" class="ui-button-danger"></button>
+    <button pButton type="button" icon="pi pi-play" (click)="reset()"
+            label="Stay" class="ui-button-success"></button>
+  </p-footer>
+</p-dialog>
+
+<app-loader></app-loader>
+
+<div class="layout-wrapper">
+  <app-layoutPrivateHeader (toggleMenubar)="toggleMenu()" *ngIf="loggedIn() == true"></app-layoutPrivateHeader>
+  <app-layoutPublicHeader *ngIf="loggedIn() == false"></app-layoutPublicHeader>
+
+  <div class="layout-content" [ngClass]="{ 'hidden-menu-content' : false, 'login': loggedIn() == true, 'nologin': loggedIn() == false }">
+    <router-outlet></router-outlet>
+  </div>
+</div>

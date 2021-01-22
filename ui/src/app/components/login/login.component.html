@@ -1,0 +1,38 @@
+<p-dialog header="Login form" visible="true" [closable]="false" [closeOnEscape]="false">
+    <form  [formGroup]="userform" (ngSubmit)="login(userform.value)">
+        <div class="p-fluid p-formgrid p-grid" style="margin: 10px 0">
+          <div class="p-field p-col">
+            <label for="username">
+              <span class="field-required">*</span>&nbsp;Username
+            </label>
+            <input pInputText type="text" id="username" formControlName="username" />
+          </div>
+          <div class="p-col">
+              <p-message severity="error"
+                         [text]="'Password is required'"
+                         *ngIf="userform.controls.username.errors?.required"></p-message>
+          </div>
+
+          <div class="p-field p-col">
+            <label for="pass">
+              <span class="field-required">*</span>&nbsp;Password&nbsp;
+            </label>
+            <input pInputText type="password" id="pass" formControlName="password" />
+          </div>
+
+          <div class="p-col">
+              <p-message severity="error"
+                         [text]="'Password is required'"
+                         *ngIf="!userform.valid && userform.controls.password.errors?.required"></p-message>
+              <p-message severity="error"
+                         [text]="'The password length must be grater than 1 character'"
+                         *ngIf="userform.controls.password.errors?.maxLength"></p-message>
+          </div>
+        </div>
+
+        <p-footer>
+          <button pButton type="submit" class="iris-button-label-withicon ui-button-secondary"
+                  icon="pi pi-sign-in" label="Sign in" [disabled]="!userform.valid || sending"></button>
+        </p-footer>
+    </form>
+</p-dialog>

@@ -1,0 +1,26 @@
+{
+  "/api/oauth": {
+    "target": "http://127.0.0.1:8811",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/api/svc1": {
+    "target": "http://127.0.0.1:8812",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/api/svc2": {
+    "target": "http://127.0.0.1:8813",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

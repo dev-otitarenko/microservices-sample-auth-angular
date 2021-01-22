@@ -1,0 +1,12 @@
+#all
+src
+classes
+generated-sources
+generated-sources
+maven-archiver
+maven-status
+
+
+#node
+node_modules
+e2e

@@ -1,0 +1,189 @@
+@charset "UTF-8";
+html {
+  /*font-size: 14px;*/
+  font-family: -apple-system, "Segoe UI", system-ui, Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.58;
+  -ms-overflow-style: scrollbar;
+  -webkit-text-size-adjust: 100%;
+}
+body .ui-widget {
+  font-family: -apple-system, "Segoe UI", system-ui, Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*LAYOUT*/
+.layout-content {
+  overflow: auto;
+  height: calc(100% - 4.0rem);
+  padding: 4px 10px 10px 4px;
+}
+.layout-content.nologin {
+  padding-left: 4px;
+  padding-bottom: 4px;
+  padding-right: 4px;
+}
+/* -->> */
+
+/*LAYOUT MENUBAR*/
+.layout-menubar {
+  height: calc(100% - 4.0rem);
+  overflow: auto;
+  border: none !important;
+  padding: 0 !important;
+  margin-top: 4.0rem;
+  width: 260px;
+  /*background-color: var(--main-background);*/
+}
+.hidden-menu-content {
+  padding-left: 10px;
+}
+/* -->> */
+
+/*LAYOUT APP MENU*/
+.layout-appmenu{
+  padding: 5px;
+  margin: 0;
+}
+.layout-appmenu ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+}
+.layout-appmenu-sub ul {
+  width: 94%;
+  padding-left: 20px !important;
+}
+.layout-appmenu  li a {
+  padding: 7px;
+  display: block;
+  text-decoration: none !important;
+  position: relative;
+}
+.layout-appmenu  li a.menu-node {
+  text-transform: uppercase;
+}
+.layout-appmenu li a .layout-menuitem-icon {
+  color: #a7a7a7;
+  opacity: 0.5;
+}
+.layout-appmenu a.appmenu-box {
+  border-top: 1px solid #e3e9ea !important;
+  border-bottom: 1px solid #e3e9ea !important;
+  box-sizing: border-box;
+}
+.layout-appmenu-sub a.appmenu-box-sub {
+  border-top: 1px solid #f6f8f9 !important;
+  border-bottom: 1px solid #f6f8f9 !important;
+  box-sizing: border-box;
+}
+.layout-appmenu li a:hover, .layour-appmenu .active {
+  cursor: pointer;
+}
+.layout-appmenu li a.active {
+  background-color: #007ad9;
+  color: #ffffff;
+}
+.layout-appmenu .fa {
+  font-size:20px;
+  text-align: center;
+}
+.layout-appmenu .appmenu-box-sub .fa {
+  font-size: 16px;
+  color: #c0c0c0;
+}
+.layout-appmenu li ul{
+  display: block;
+}
+.layout-appmenu li ul::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+}
+/* -->> */
+
+/* LAYOUT TOP BAR */
+.layout-topbar {
+  background-color: #ffffff;
+  box-sizing: border-box;
+  display: block;
+  padding: 0;
+  height: 3.9rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 778;
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+.layout-topbar .menu-button {
+  color: #0944ff;
+  font-size: 24px;
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 58px;
+  text-align: center;
+  transition: background-color .2s;
+}
+.layout-topbar .menu-button:hover {
+  text-decoration: none;
+}
+.layout-topbar .menu-button i {
+  line-height: inherit;
+}
+.layout-topbar .logo {
+  margin-left: 40px;
+  margin-top: 1px;
+  display: inline-block;
+}
+.layout-topbar.nologin .logo {
+  margin-left: 8px;
+}
+.layout-topbar .logo img {
+  height: 3.9rem;
+}
+.layout-topbar div.app-context {
+  float: right;
+  padding-left: 2px; margin-top: 0.3rem;
+  vertical-align: middle;
+}
+.layout-topbar div.app-userinfo {
+  float: left;
+  padding-left: 5px; margin-right: 5px;
+}
+.layout-topbar div.app-login,
+.layout-topbar div.app-logoff {
+  float: left;
+}
+.layout-topbar .app-user {
+  font-size: 1.0rem !important;
+}
+.layout-topbar .app-organization {
+  font-size: 0.8rem !important;
+  font-weight: bold;
+  color:#3c96c7;
+}
+/* -->> */
+
+@media screen and (max-width: 64em) {
+  .layout-mask {
+    display: block;
+  }
+
+  .layout-topbar {
+    text-align: center;
+  }
+
+  .topbar-menu > li.topbar-menu-themes > ul {
+    text-align: left;
+  }
+}

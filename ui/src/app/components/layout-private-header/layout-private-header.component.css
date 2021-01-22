@@ -1,0 +1,16 @@
+.logo-image {
+  float: left;
+}
+.logo-app {
+  background-size: cover;
+  height: 48px;
+  width: 198px;
+}
+
+@media screen and (max-width: 64em) {
+  .logo-app {
+    background-size: contain;
+    height: 50px;
+    width: 140px;
+  }
+}

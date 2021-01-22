@@ -1,2 +1,4 @@
-# microservices-sample-auth-angular
-Simple microservices project with docker, angular, auth server and resource server
+# Description
+Sample of using microservices in docker and kubernetes
+
+

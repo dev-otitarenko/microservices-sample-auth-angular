@@ -1,0 +1,27 @@
+<div class="layout-topbar">
+  <!-- bars -->
+  <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
+    <i class="fa fa-bars"></i>
+  </a>
+  <!-- APP logo -->
+  <a class="logo" [routerLink]="['']">
+    <div class="logo-image logo-app"></div>
+  </a>
+  <!-- User context -->
+  <div class="app-context">
+    <div class="app-userinfo">
+        <span class="app-user">
+           {{ authService.user.username }}
+        </span>
+      <br />
+      <span class="app-organization">
+          {{ authService.user.organization.name }}
+        </span>
+    </div>
+
+    <div class="app-logoff">
+      <button pButton type="button" class="ui-button-danger" icon="pi pi-sign-out"
+              (click)="logout();" pTooltip="Logout"></button>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,51 @@
 # Description
 
-Sample of using microservices in docker containers.
-All services are logging in ELK
+Sample of using microservices in docker containers. Used libraries: OAuth, Security, OpenFeign, Lombok.
+All services are logging in ELK stack.
+
+# Support authorized service's methods from other service in your application
+
+```sh
+@Component
+public class AuthRequestInterceptor implements RequestInterceptor {
+    @Override
+    public void apply(RequestTemplate requestTemplate) {
+        Authentication _auth = SecurityContextHolder.getContext().getAuthentication();
+        if (_auth != null) {
+            if (_auth.getDetails() instanceof  OAuth2AuthenticationDetails) {
+                String _token = ((OAuth2AuthenticationDetails) _auth.getDetails()).getTokenValue();
+                requestTemplate.header("Authorization", String.format("Bearer %s", _token));
+            }
+        }
+    }
+}
+```
+
+# Avoiding using gateway (default.nginx.conf)
+
+```sh
+  location / {
+    try_files $uri $uri/ /index.html?$args;
+  }
+
+  location /api/oauth {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Server $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass_header X-XSRF-TOKEN;
+    proxy_pass http://auth-server:8811/oauth;
+  }
+
+  location /api/svc1 {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Server $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass_header X-XSRF-TOKEN;
+    proxy_pass http://service1:8812/svc1;
+  }
+```
 
 # Installing ELK
 

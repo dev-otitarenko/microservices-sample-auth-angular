@@ -3,7 +3,7 @@
 Sample of using microservices in docker containers. Used libraries: OAuth, Security, OpenFeign, Lombok.
 All services are logging in ELK stack.
 
-# Support authorized service's methods from other service in your application
+# Calling authorized service's methods from other service in your application
 
 ```sh
 @Component

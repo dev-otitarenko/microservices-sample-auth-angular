@@ -63,7 +63,7 @@ $ docker run -d --name elasticsearch --net app_net -p 9200:9200 -p 9300:9300 -e 
 
 In next step, let's run Logbash:
 ```sh
-ocker run -d --name logstash --net app_net -p 5000:5000 -v ~/logstash.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:latest
+$ docker run -d --name logstash --net app_net -p 5000:5000 -v ~/logstash.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:latest
 ```
 
 ```

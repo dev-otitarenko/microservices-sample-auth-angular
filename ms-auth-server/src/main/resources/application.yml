@@ -27,6 +27,12 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 #SLF4J
 logging:
   level:

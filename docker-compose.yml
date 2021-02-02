@@ -19,9 +19,8 @@ services:
       app.db.name: samples
       app.db.user: sa
       app.db.psw: Passw0rd2
-    networks:
-      - app_net
-
+#    networks:
+#      - app_net
 
   service1:
     build:
@@ -44,8 +43,8 @@ services:
       auth-server.user: adminapp
       auth-server.secret: password
       auth-server.url: http://auth-service:8811
-    networks:
-      - app_net
+#    networks:
+#      - app_net
 
   service2:
     build:
@@ -68,9 +67,9 @@ services:
       auth-server.user: adminapp
       auth-server.secret: password
       auth-server.url: http://auth-service:8811
-    networks:
-      - app_net
+#    networks:
+#      - app_net
 
-networks:
-  app_net:
-    driver: bridge
+#networks:
+#  app_net:
+#    driver: bridge

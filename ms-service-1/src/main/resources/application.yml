@@ -36,6 +36,12 @@ ribbon:
   eager-load:
     enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 #SLF4J
 logging:
   level:
